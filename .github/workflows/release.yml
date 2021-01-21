@@ -21,5 +21,3 @@ jobs:
         run: gren release --username=decoch --repo=gren-example --tag=${GITHUB_REF#refs/tags/}
         env:
           GREN_GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-      - name: Debug
-        run: echo ${{ github.ref#refs/tags/ }}
