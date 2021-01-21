@@ -8,18 +8,19 @@ on:
 
 jobs:
   note:
-    name: Create Release
+    name: Release
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Use Node.js
         uses: actions/setup-node@v1
+
       - name: Install Gren
         run: npm install github-release-notes -g
-      - name: Create Release
+
+      - name: Create a release
         run: gren release --username=decoch --repo=gren-example --tags=${GITHUB_REF#refs/tags/}
         env:
           GREN_GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-      - name: Debug
-        run: echo ${GITHUB_REF#refs/tags/}
