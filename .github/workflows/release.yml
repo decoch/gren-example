@@ -18,6 +18,6 @@ jobs:
       - name: Install Gren
         run: npm install github-release-notes -g
       - name: Create Release
-        run: gren release --username=decoch --repo=gren-example --tag=${GITHUB_REF#refs/tags/}
+        run: gren release --username=decoch --repo=gren-example --tags=${GITHUB_REF#refs/tags/}
         env:
           GREN_GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
